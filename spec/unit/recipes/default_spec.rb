@@ -6,7 +6,7 @@
 
 require 'spec_helper'
 
-describe 'node::default' do
+describe 'nginx::default' do
   context 'When all attributes are default, on Ubuntu 18.04' do
     # for a complete list of available platforms and versions see:
     # https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md
@@ -19,10 +19,6 @@ describe 'node::default' do
     it 'should install nginx' do
       expect(chef_run).to install_package 'nginx'
     end
-
-    # it 'should install nodejs' do
-    #   expect(chef_run).to install_package 'nodejs'
-    # end
 
     it 'should enable the nginx service' do
       expect(chef_run).to enable_service 'nginx'
@@ -44,16 +40,16 @@ describe 'node::default' do
       expect(chef_run).to delete_link('/etc/nginx/sites-enabled/default')
     end
 
-    it 'runs apt get update' do
-      expect(chef_run).to update_apt_update 'update_sources'
-    end
-
-    it 'should install nodejs from a recipe' do
-      expect(chef_run).to include_recipe('nodejs')
-    end
-
-    it 'should install pm2 via pm' do
-      expect(chef_run).to install_nodejs_npm('pm2')
-    end
+    # it 'runs apt get update' do
+    #   expect(chef_run).to update_apt_update 'update_sources'
+    # end
+    #
+    # it 'should install nodejs from a recipe' do
+    #   expect(chef_run).to include_recipe('nodejs')
+    # end
+    #
+    # it 'should install pm2 via pm' do
+    #   expect(chef_run).to install_nodejs_npm('pm2')
+    # end
   end
 end
