@@ -39,17 +39,5 @@ describe 'nginx::default' do
     it 'should delete the symlink from the default config in sites-enabled' do
       expect(chef_run).to delete_link('/etc/nginx/sites-enabled/default')
     end
-
-    # it 'runs apt get update' do
-    #   expect(chef_run).to update_apt_update 'update_sources'
-    # end
-    #
-    # it 'should install nodejs from a recipe' do
-    #   expect(chef_run).to include_recipe('nodejs')
-    # end
-    #
-    # it 'should install pm2 via pm' do
-    #   expect(chef_run).to install_nodejs_npm('pm2')
-    # end
   end
 end
